@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Chapter 1 - Meet Kakfa - Apache Kafka Notes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Chapter 1 - Meet Kakfa";
+    var mkdocs_page_input_path = "ktdg-1.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Apache Kafka Notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Kafka - The Definitive Guide</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Chapter 1 - Meet Kakfa</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Apache Kafka Notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Kafka - The Definitive Guide &raquo;</li>
+        
+      
+    
+    <li>Chapter 1 - Meet Kakfa</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="chapter-1-meet-kafka">Chapter 1: Meet Kafka</h1>
+<h1 id="overview">Overview</h1>
+<p>Apache Kafka is</p>
+<ul>
+<li>a publish/subscribe messaging system</li>
+<li>distributed commit log </li>
+<li>distributing streaming platform </li>
+</ul>
+<p>Apache Kafka provides the circulatory system for the data ecosystem.</p>
+<p>It carries messages between the various members of the infrastructure, providing a consistent interface for all clients. </p>
+<p>Consistency in data format allows writing and reading messages to be decoupled. </p>
+<h1 id="some-reasons-to-use-kafka">Some reasons to use Kafka:</h1>
+<ol>
+<li>
+<p>Multiple producers: allows aggregating and centralising similar data sources</p>
+</li>
+<li>
+<p>Multiple consumers: allows multiple consumers to share a stream - achieving load balancing and failure tolerance</p>
+</li>
+<li>
+<p>Disk-Based Retention: </p>
+<ul>
+<li>no loss of data due to slow processing due to burst in traffic etc</li>
+<li>maintenance can be performed on consumer without worrying losing data</li>
+</ul>
+</li>
+<li>
+<p>Scalability</p>
+<ul>
+<li>strong horizontal scalability to increase performance</li>
+<li>scale without reboot, not damaging availability</li>
+<li>failure tolerance</li>
+</ul>
+</li>
+</ol>
+<h1 id="key-concepts">Key Concepts</h1>
+<h3 id="message">Message</h3>
+<ul>
+<li>The basic unit of data in Kafka</li>
+<li>similar to a database record, without a specific format</li>
+</ul>
+<h3 id="key">Key</h3>
+<ul>
+<li>metadata of a message</li>
+</ul>
+<h3 id="batch">Batch</h3>
+<ul>
+<li>a collection of messages </li>
+<li>tradeoff between latency and throughput</li>
+<li>typically compressed - tradeoff between efficient data transmission and storage at the expense of processing power</li>
+</ul>
+<h3 id="schema">Schema</h3>
+<ul>
+<li>data schema / structure for message</li>
+<li>JSON, XML etc … lacking features such as robust type handling and compatibility between schema versions</li>
+<li>Recommended Apache Avro</li>
+</ul>
+<h3 id="topic">Topic</h3>
+<ul>
+<li>similar to a folder in file system (a table in database in the original book is less accurate
+compared to a folder IMO)</li>
+</ul>
+<h3 id="partition-further-breakdown-of-a-topic-like-a-file">Partition - further breakdown of a topic (like a file)</h3>
+<ul>
+<li>messages are written in an append-only fashion</li>
+<li>time-ordering is preserved across partition</li>
+<li>provides redundancy and scalability</li>
+<li>each partition can be hosted on a different server - a single topic can be scaled horizontally across multiple servers to provide performance far beyond the ability of a single server </li>
+</ul>
+<h3 id="producer-publisher">Producer / Publisher</h3>
+<ul>
+<li>create messages - produce to a speicfic topic</li>
+</ul>
+<h3 id="consumer-subscriber">Consumer / Subscriber</h3>
+<ul>
+<li>read messages - subscribe to one or more topics and read message in order</li>
+<li>offset - allows reading the last read position</li>
+</ul>
+<h3 id="consumer-group">Consumer Group</h3>
+<ul>
+<li>one or more consumers that work together to consume a topic</li>
+<li>each partition is only con‐ sumed by one member -&gt; ownership of the partition by the consumer</li>
+<li>this achieves load balancing and auto scaling</li>
+</ul>
+<h3 id="broker">Broker</h3>
+<ul>
+<li>single Kafka server</li>
+<li>receives messages from producers, assigns offsets to them, and commits the messages to storage on disk </li>
+<li>services consumers, responding to fetch requests for partitions and responding with the messages that have been committed to disk</li>
+<li>can be part of a cluster</li>
+</ul>
+<h3 id="cluster">Cluster</h3>
+<ul>
+<li>one broker will also function as the cluster controller (automatically elected)</li>
+<li>responsible for administrative operation e.g. assinging partitions to brokers and monitoring for broker failures</li>
+</ul>
+<h3 id="partition-broker">Partition &amp; Broker</h3>
+<ul>
+<li>a partition is owned by a single broker in the cluster - leader</li>
+<li>a partition may be assigned to multiple brokers (result in replication)</li>
+</ul>
+<h3 id="retention">Retention</h3>
+<ul>
+<li>retaining messages for a period of time (can be days) / certain size (can be certain GBs)</li>
+<li>broker retention </li>
+<li>topic retention</li>
+</ul>
+<h1 id="other-useful-info">Other Useful Info</h1>
+<p>Advantages of Multiple Clusters Setup:</p>
+<ul>
+<li>
+<p>Segregation of types of data </p>
+</li>
+<li>
+<p>Isolation for security requirements </p>
+</li>
+<li>
+<p>Multiple datacenters (disaster recovery) </p>
+</li>
+</ul>
+<p>Tool / Lib I should keep an eye on afterwards: <em>MirrorMaker</em></p>
+<ul>
+<li>
+<p>handles the replication across brokers</p>
+</li>
+<li>
+<p>simply a Kafka consumer and producer, linked to a queue</p>
+</li>
+</ul>
+<p>History and origin are omitted, it's interesting to know. </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../about/" class="btn btn-neutral" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../about/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
