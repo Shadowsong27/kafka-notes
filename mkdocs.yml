@@ -1,0 +1,6 @@
+site_name: Apache Kafka Notes
+nav:
+  - About: about.md
+  - Kafka - The Definitive Guide:
+      - Chapter 1 - Meet Kakfa: ktdg-1.md
+theme: readthedocs
