@@ -7,7 +7,7 @@ It is entirely decoupled from my personal blog due to
 
 1. it is not a blog but a study note
 2. it will make the category layers in the blog too nested
-3. it is hard to browse and search too
+3. it is hard to browse and search on blog
 
 Feel free to discuss. I have only finished reading the first chapter, 
 and I think I have missed out a lot in the past few years.

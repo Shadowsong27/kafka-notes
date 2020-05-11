@@ -1,6 +1,6 @@
-site_name: Apache Kafka Notes
+site_name: Shadowsong's Apache Kafka Notes
 nav:
-  - About: about.md
+  - Home: index.md
   - Kafka - The Definitive Guide:
       - Chapter 1 - Meet Kakfa: ktdg-1.md
 theme: readthedocs
